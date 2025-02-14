@@ -1,0 +1,220 @@
+:root {
+    --crust: #181825;
+    --mantle: #1e1e2e;
+    --base: #24273a;
+    --surface: #313244;
+    --overlay: #494d64;
+    --text: #ffffff;
+    --subtext: #a5adcb;
+    --blue: #8aadf4;
+    --red: #ed8796;
+    --yellow: #eed49f;
+    --green: #a6da95;
+    --lavender: #b7bdf8;
+    --shadow-low: rgba(0, 0, 0, 0.2);
+    --shadow-high: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--text);
+    background-color: var(--base);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--mantle);
+    color: var(--lavender);
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px var(--shadow-high);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--lavender);
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+    gap: 1rem;
+}
+
+header nav a {
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    color: var(--lavender);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header nav a:hover {
+    background-color: var(--overlay);
+    color: var(--text);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--crust);
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+aside, section {
+    flex: 1 1 100%;
+    max-width: none;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--overlay);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px var(--shadow-low);
+    padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    aside, section {
+        flex: 1 1 30%;
+    }
+}
+
+aside img {
+    border-radius: 50%;
+    width: clamp(120px, 20vw, 150px);
+    height: clamp(120px, 20vw, 150px);
+    display: block;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--lavender);
+    object-fit: cover;
+}
+
+aside h2, section h2 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--lavender);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--lavender);
+    padding-bottom: 0.5rem;
+}
+
+aside p, aside ul, section ul {
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    margin-top: 1rem;
+    color: var(--text);
+}
+
+aside ul li, section ul li {
+    list-style: disc;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+aside ul li a, section ul li a {
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    color: var(--lavender);
+    text-decoration: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    border-bottom: 1px dotted var(--blue);
+}
+
+aside ul li a:hover, section ul li a:hover {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+section article {
+    margin-bottom: 1.5rem;
+    background: var(--mantle);
+    padding: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 1px 3px var(--shadow-low);
+    font-size: clamp(0.8rem, 1vw, 1rem);
+}
+
+blockquote {
+    background: var(--overlay);
+    padding: 1rem;
+    border-left: 4px solid var(--blue);
+    color: var(--text);
+    font-style: italic;
+    border-radius: 0.3rem;
+    margin: 1.5rem 0;
+    font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+}
+
+#about-me {
+    order: 2;
+    flex: 1 1 100%;
+}
+
+footer {
+    text-align: center;
+    background: var(--mantle);
+    color: var(--lavender);
+    padding: 1rem 0;
+    font-size: clamp(0.8rem, 1vw, 1rem);
+    box-shadow: 0 -2px 4px var(--shadow-low);
+    margin-top: auto;
+}
+
+footer p {
+    color: var(--lavender);
+}
+
+button {
+    font-size: clamp(0.8rem, 1.2vw, 1.2rem);
+    background-color: var(--green);
+    color: var(--base);
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px var(--shadow-low);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--yellow);
+    color: var(--crust);
+}
+p a[href^="mailto:"] {
+    color: var(--lavender);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--blue);
+}
+a[href*="github.com"] {
+    color: var(--lavender);
+    text-decoration: none;
+}
